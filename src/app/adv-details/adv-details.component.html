@@ -1,0 +1,12 @@
+<h1>Advertisement Details</h1>
+<div>
+  <b>Username: {{advertisement.userNameAndLastName}}</b>
+  <agm-map class="map" [latitude]="advertisement.latitude" [longitude]="advertisement.longitude" [zoom]="14"> </agm-map>
+</div>
+<div>Description:{{advertisement.description}}</div>
+<div>Type: {{advertisement.advertisementType}}</div>
+<div>Created:{{advertisement.created }}</div>
+<img class="imgadv" [src]=" advertisement.picture1" />
+<img class="imgadv" [src]=" advertisement.picture2" />
+<img class="imgadv" [src]=" advertisement.picture3" />
+<img class="imgadv" [src]=" advertisement.picture4" />
