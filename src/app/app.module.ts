@@ -10,8 +10,10 @@ import { FormsModule } from '@angular/forms';
 import { authInterceptorProviders } from './auth/auth-interceptor.service';
 import { AddNewAdvComponent } from './add-new-adv/add-new-adv.component';
 import { HomeComponent } from './home/home.component';
-import { AgmCoreModule } from '@agm/core';
+
 import { AdvDetailsComponent } from './adv-details/adv-details.component';
+import { CookieService } from 'ngx-cookie-service';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { AdvDetailsComponent } from './adv-details/adv-details.component';
     FormsModule,
     AgmCoreModule.forRoot({apiKey:'AIzaSyAmnwupYgJcM-RSE0umS6wnL4Hq3KoP8-A'}),
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
