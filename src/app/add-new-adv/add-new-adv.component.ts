@@ -80,7 +80,11 @@ export class AddNewAdvComponent implements OnInit {
   add() {
 
     this.advertisementService.addNew(this.advertisementRequest).subscribe(data => { console.log(data) }, err => console.log(err))
-    this.router.navigate(['home'])
+    setTimeout(() =>
+{
+    this.router.navigate(['home']);
+},
+1500);
   }
 
 }

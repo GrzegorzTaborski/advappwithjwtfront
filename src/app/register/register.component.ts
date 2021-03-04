@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
     if (this.confirmationPassword === this.registerRequest.password) {
 
       this.authService.register(this.registerRequest).subscribe(data => {
-        this.showError = true;
+        this.showError = false;
         this.message = data.message;
         this.showMessage = true;
       }, err => {

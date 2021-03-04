@@ -14,12 +14,10 @@ export class TokenStorageService {
   constructor(private cookie: CookieService) { }
 
   signOut(): void {
-    window.sessionStorage.clear();
     this.cookie.set(LOGGED_IN, "false");
     this.cookie.deleteAll();
 
-
-  }
+ }
   public saveToken(token: string): void {
 
     this.cookie.delete(TOKEN_KEY);
