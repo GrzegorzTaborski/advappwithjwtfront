@@ -14,6 +14,12 @@ import { HomeComponent } from './home/home.component';
 import { AdvDetailsComponent } from './adv-details/adv-details.component';
 import { CookieService } from 'ngx-cookie-service';
 import { AgmCoreModule } from '@agm/core';
+import { AccDetailsComponent } from './acc-details/acc-details.component';
+import { UserAdvComponent } from './user-adv/user-adv.component';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { SearchComponent } from './search/search.component';
+import { ConfirmationSiteComponent } from './confirmation-site/confirmation-site.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +28,20 @@ import { AgmCoreModule } from '@agm/core';
     RegisterComponent,
     AddNewAdvComponent,
     HomeComponent,
-    AdvDetailsComponent
+    AdvDetailsComponent,
+    AccDetailsComponent,
+    UserAdvComponent,
+    ChangepasswordComponent,
+    SearchComponent,
+    ConfirmationSiteComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    AgmCoreModule.forRoot({apiKey:'AIzaSyAmnwupYgJcM-RSE0umS6wnL4Hq3KoP8-A'}),
+
   ],
   providers: [authInterceptorProviders, CookieService],
   bootstrap: [AppComponent]

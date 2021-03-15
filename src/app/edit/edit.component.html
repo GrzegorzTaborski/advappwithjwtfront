@@ -1,0 +1,47 @@
+<div class="col-md-8 offset -md-3">
+  <form (ngSubmit)="update()">
+    <h1>Advertisement Details</h1>
+    <div>
+
+      <agm-map class="map" [latitude]="advertisement.latitude" [longitude]="advertisement.longitude" [zoom]="14">
+      </agm-map>
+    </div>
+
+
+    <b>Username: {{advertisement.userNameAndLastName}}</b>
+    <div class="form-group">
+      <label>Description</label>
+      <input type="text" placeholder="{{advertisement.description}}" class="form-control" id="description"
+        [(ngModel)]="advertisement.description" name="description">
+    </div>
+    <div *ngFor="let str of advType">
+      <input type="radio" [value]="str" name="str" [(ngModel)]="advertisement.advType" />{{str}}
+    </div>
+
+    <img class="imgadv" [src]=" advertisement.picture1" />
+    <div class="form-group">
+      <label>picture1</label>
+      <input type="file" (change)="onFileSelected1($event)" class="form-control" id="picture1" name="picture1">
+    </div>
+
+    <img class="imgadv" [src]=" advertisement.picture2" />
+    <div class="form-group">
+      <label>picture1</label>
+      <input type="file" (change)="onFileSelected2($event)" class="form-control" id="picture2" name="picture2">
+    </div>
+
+    <img class="imgadv" [src]=" advertisement.picture3" />
+    <div class="form-group">
+      <label>picture1</label>
+      <input type="file" (change)="onFileSelected3($event)" class="form-control" id="picture3" name="picture3">
+    </div>
+
+    <img class="imgadv" [src]=" advertisement.picture4" />
+    <div class="form-group">
+      <label>picture1</label>
+      <input type="file" (change)="onFileSelected4($event)" class="form-control" id="picture4" name="picture4">
+    </div>
+
+    <br />
+    <button class="btn btn-success" type="sumbit">Update</button>
+  </form>

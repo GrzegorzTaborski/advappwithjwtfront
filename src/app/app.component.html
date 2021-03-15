@@ -1,22 +1,43 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand">AdvTabo</a>
-    <button (click)="homeRedirect()" style="margin-right: 80%;"class="btn btn-outline-success">All</button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <button *ngIf="isUserLoggedIn()" (click)="goToAdd()" class="btn btn-outline-success">Add new</button>
-      <div fx-layout="row" fx-flex fx-layout-align="right">
-        <button *ngIf="!isUserLoggedIn()" (click)="goToLogin()" class="btn btn-outline-success">Login</button>
-        <button *ngIf="!isUserLoggedIn()" (click)="goToRegister()" class="btn btn-outline-success">Register</button>
-        <button *ngIf="isUserLoggedIn()" (click)="logout()" class="btn btn-outline-success">Logout</button>
+    <button (click)="homeRedirect()"class="btn btn-outline-success">All</button>
+    <div class="dropdown">
+      <button class="btn btn-outline-success">Range</button>
+      <div class="dropdown-content">
+        <div *ngFor="let rng of rangeOptions">
+          <input type="radio" [value]="rng" name="rng" [(ngModel)]="range" />{{rng}}
+        </div>
       </div>
-
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-outline-success">Type</button>
+      <div class="dropdown-content">
+        <div *ngFor="let str of advType">
+          <input type="radio" [value]="str" name="str" [(ngModel)]="typeSelected" />{{str}}
+        </div>
+      </div>
     </div>
   </div>
+  <button (click)="search()" class="btn btn-outline-success">Search</button>
+
+ <button *ngIf="isUserLoggedIn()" (click)="goToAdd()" class="btn btn-outline-success">Add</button>
+  <button *ngIf="!isUserLoggedIn()" (click)="goToLogin()" class="btn btn-outline-success">Login</button>
+  <button *ngIf="!isUserLoggedIn()" (click)="goToRegister()" class="btn btn-outline-success">Register</button>
+  <button *ngIf="isUserLoggedIn()" (click)="logout()" class="btn btn-outline-success">Logout</button>
+  <div *ngIf="isUserLoggedIn()" class="dropdown">
+    <button class="btn btn-outline-success">{{user}}</button>
+    <div class="dropdown-content">
+      <a class="btn btn-outline-info" href="http://localhost:4200/accDetails">Your account</a>
+      <a class="btn btn-outline-info" href="http://localhost:4200/userAdv">Your advertisement</a>
+    </div>
+  </div>
+
 </nav>
 <router-outlet></router-outlet>
 
-<footer class="footer">
+<!-- <footer class="footer">
   <div class="content-inside">
     <span>Made by Grzegorz Taborski</span>
   </div>
-</footer>
+</footer> -->

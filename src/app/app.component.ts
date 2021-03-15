@@ -8,25 +8,43 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private router: Router, private tokenStorageService: TokenStorageService){};
-
-  isUserLoggedIn():boolean{
+  constructor(private router: Router, private tokenStorageService: TokenStorageService) { };
+  user: string;
+  advType: Array<string> = ['FURNITURE', 'ELECTRONICS', 'PART', 'OTHER'];
+  rangeOptions: Array<number> = [5000.0, 10000.0, 15000.0]
+  typeSelected:string;
+  range:number;
+  isUserLoggedIn(): boolean {
+    if (this.tokenStorageService.isLogged()) {
+      this.user = this.tokenStorageService.getEmail();
+    }
     return this.tokenStorageService.isLogged();
   }
-  goToLogin(){
+
+  goToUserAdv() {
+    this.router.navigate(['userAdv']);
+  }
+  goToDetails() {
+    this.router.navigate(['accDetails']);
+  }
+  goToLogin() {
     this.router.navigate(['login']);
   }
-  goToRegister(){
+  goToRegister() {
     this.router.navigate(['register']);
   }
-  logout(){
+  logout() {
     this.tokenStorageService.signOut();
     window.location.reload();
   }
-  goToAdd(){
+  goToAdd() {
     this.router.navigate(['add'])
   }
-  homeRedirect(){
+  homeRedirect() {
     this.router.navigate(['home'])
+  }
+  search(){
+    this.typeSelected;
+    this.router.navigate(['search/',this.range,this.typeSelected])
   }
 }

@@ -13,7 +13,7 @@ import { AdvertisementService } from '../advertisement/advertisement.service';
 })
 export class AddNewAdvComponent implements OnInit {
 
-  advType: Array<string> = ['FURNITURE', 'ELECTRONICS', 'PART', 'PETS'];
+  advType: Array<string> = ['FURNITURE', 'ELECTRONICS', 'PART', 'OTHER'];
 
   advertisementRequest: AdvertisementRequest = new AdvertisementRequest();
   constructor(private advertisementService: AdvertisementService, private http: HttpClient, private router: Router) { }
